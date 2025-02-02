@@ -5,12 +5,10 @@ import './App.css'
 import Footer from './Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <Footer name={count} />
-    </>
+    <h1>
+      Welcome
+    </h1>
   )
 }
 
