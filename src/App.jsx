@@ -3,12 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Footer from './Footer'
+import WordleGrid from './wordleGrid'
 
 function App() {
   return (
-    <h1>
-      Welcome
-    </h1>
+    <div>
+    <h1 class="mudle-home"> Welcome to Mudle</h1>
+    <WordleGrid />
+    </div>
   )
 }
 
