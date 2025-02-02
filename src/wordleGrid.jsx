@@ -1,5 +1,7 @@
+import "./WordleGrid.css"
+
 const WordleGrid = () => {
-    const rows = 5; 
+    const rows = 6; 
     const cols = 5; 
   
     return (
