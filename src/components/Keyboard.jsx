@@ -1,6 +1,6 @@
 import './Keyboard.css';
 
-function Keyboard() {
+function Keyboard({ onKeyPress }) {
     const rows = [
         ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
         ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -15,6 +15,7 @@ function Keyboard() {
                         <button
                             key={keyIndex}
                             className="keyboard-key"
+                            onClick={() => onKeyPress(key)} // Trigger onKeyPress on button click
                         >
                             {key}
                         </button>
@@ -26,4 +27,3 @@ function Keyboard() {
 }
 
 export default Keyboard;
-

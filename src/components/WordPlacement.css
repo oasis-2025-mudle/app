@@ -1,15 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    align-items: flex-start;
     height: 100%;
     width: 100%;
-    margin: 0;
     background-color: #f4f4f9;
-  }
-  
-  .word-placement {
+}
+
+.word-placement {
     text-align: center;
     background-color: white;
     padding: 20px;
@@ -19,24 +18,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: width 0.3s ease; /* Smooth transition for resizing */
+    transition: width 0.3s ease;
+}
 
-  }
-  
-  h1 {
+h1 {
     font-size: 2rem;
     color: #333;
-    margin-bottom: 20px; /* Adding space below the title */
-  }
-  
-  .word {
+    margin-bottom: 20px;
+}
+
+.word {
     font-size: 3rem;
     margin: 20px 0;
-  }
-  
-  .letter {
+}
+
+.letter {
     margin: 0 10px;
     font-weight: bold;
     letter-spacing: 5px;
-  }
-  
+}
