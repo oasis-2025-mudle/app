@@ -1,0 +1,49 @@
+/* General Keyboard Styling */
+.keyboard {
+    position: absolute; /* Use absolute positioning */
+    bottom: 100px; /* Distance from the bottom */
+    left: 70%; /* Center the keyboard horizontally */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    padding: 12px;
+    border: 1px solid purple;
+    border-radius: 30px;
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    background-color: lavender;
+}
+
+/* Row styling */
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px; /* Increase space between rows */
+}
+
+/* Key styling */
+.keyboard-key {
+    width: 60px;
+    height: 60px;
+    padding: 15px;
+    margin: 2px;
+    border: 1px solid #dcacea;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #bd51df;
+}
+
+/* Hover effect on keys */
+.keyboard-key:hover {
+    background-color: #e7c7ec;
+}
+
+/* Active key effect when pressed */
+.keyboard-key:active {
+    background-color: #bbb;
+    transform: translateY(2px);
+}
+
