@@ -1,39 +1,83 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: right;
-    align-items: flex-start;
-    height: 100%;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
     width: 100%;
     background-color: #f4f4f9;
+    margin: 0;
 }
 
 .word-placement {
     text-align: center;
     background-color: white;
-    padding: 20px;
+    padding: 15px; /* Reduced padding for a smaller box */
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack the words vertically */
     justify-content: center;
     align-items: center;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, height 0.3s ease; /* Ensure height transitions */
+    margin: 0 auto;
+    width: auto; /* Adjust width based on content */
+    min-height: 90px; /* Ensure there's a minimum height */
+    height: auto; /* Allow height to grow dynamically */
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.6rem; /* Smaller title font size */
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced space between title and word lines */
 }
 
 .word {
-    font-size: 3rem;
-    margin: 20px 0;
+    font-size: 2.5rem; /* Smaller font size for the word */
+    margin: 10px 0; /* Reduced margin to make the box smaller */
+    display: flex;
+    flex-direction: column; /* Stack the words vertically */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px; /* Reduced space between lines */
 }
 
 .letter {
-    margin: 0 10px;
+    margin: 0 8px; /* Reduced margin for smaller letters */
     font-weight: bold;
-    letter-spacing: 5px;
+    letter-spacing: 4px; /* Slightly reduced letter spacing */
+    position: relative;
+    display: inline-block;
+    color: #333;
+}
+
+.letter::before {
+    content: "";
+    position: absolute;
+    top: -5px; /* Adjust box position above the letter */
+    left: -8px; /* Adjust box position to fit around the letter */
+    right: -8px; /* Adjust box width */
+    bottom: -5px; /* Adjust box height */
+    background-color: rgba(0, 0, 0, 0.1); /* Light box background */
+    border-radius: 5px;
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Apply the hover effect only if the letter is not a space */
+.letter:not(.space):hover::before {
+    opacity: 1; /* Show the box */
+}
+
+/* Handle the space character */
+.space {
+    display: inline-block;
+    width: 40px; /* Adjusted space width to maintain consistent letter width */
 }

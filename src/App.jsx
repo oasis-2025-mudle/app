@@ -4,18 +4,12 @@ import WordPlacement from "./components/WordPlacement";
 
 const App = () => {
   return (
-    <div className="app">
-      <h1>Music Wordle Guessing</h1>
+    
+    <div className="container">
       <WordPlacement />
-      <Keyboard />
+      <Keyboard /> 
     </div>
+
   )
 }
-// function App() {
-//   return (
-//     <div>
-//     <h1 class="mudle-home"> Welcome</h1>
-//     </div>
-//   )
-// }
 export default App
