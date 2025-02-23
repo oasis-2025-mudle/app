@@ -1,11 +1,11 @@
-import React from "react";
-import "./WordPlacement.css";
+import React from 'react';
+import './WordPlacement.css';
 
-const WordPlacement = () => {
-  const wordToGuess = "Alice you well okay"; // The word to guess
-
-  // Split the input into separate words and map them
-  const renderWord = (word) => {
+const WordPlacement = ({ guessedWords }) => {
+  const wordToGuess = "Paris In The Rain"; // The word to guess
+  const words = wordToGuess.split(" ");  // Split the sentence into words
+  
+  const renderWord = (word, guessedWord) => {
     return word.split("").map((letter, index) => {
       if (letter === " ") {
         return (
@@ -14,25 +14,23 @@ const WordPlacement = () => {
           </span>
         );
       }
+
+      // Display guessed letter or placeholder based on the guessedWord
       return (
         <span className="letter" key={index}>
-          _
+          {guessedWord[index] === "_" ? "_" : guessedWord[index]}
         </span>
       );
     });
   };
 
-  // Split the word to guess into individual words and map them into lines
-  const words = wordToGuess.split(" "); // Split input into words
-  
   return (
     <div className="word-placement">
-      <h1>Word Placement Game</h1>
+      <h1>GUESS THE SONG !</h1>
       <div className="word">
-        {/* Map through each word and render them in individual lines */}
-        {words.map((word, index) => (
-          <div key={index} className="line">
-            {renderWord(word)}
+        {words.map((word, wordIndex) => (
+          <div key={wordIndex} className="line">
+            {renderWord(word, guessedWords[wordIndex])}
           </div>
         ))}
       </div>

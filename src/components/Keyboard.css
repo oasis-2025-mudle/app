@@ -1,16 +1,20 @@
 /* General Keyboard Styling */
 .keyboard {
+    height: 580px;
     position: absolute; /* Use absolute positioning */
-    bottom: 100px; /* Distance from the bottom */
-    left: 70%; /* Center the keyboard horizontally */
+    bottom: 25px; /* Distance from the bottom */
+    left: 75%; /* Center the keyboard horizontally */
     transform: translateX(-50%); /* Adjust for perfect centering */
     padding: 12px;
     border: 1px solid purple;
     border-radius: 30px;
     background-color: #e0e0e0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
+    font-family: Jazz LET, fantasy;
     background-color: lavender;
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack rows vertically */
+    justify-content: flex-end; /* Align rows at the bottom */
 }
 
 /* Row styling */
@@ -24,17 +28,17 @@
 .keyboard-key {
     width: 60px;
     height: 60px;
-    padding: 15px;
+    padding: 10px;
     margin: 2px;
-    border: 1px solid #dcacea;
+    border: 2px solid #dcacea;
     border-radius: 20px;
     background-color: #f9f9f9;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     color: #bd51df;
-    font-family: Bookman, URW Bookman L, serif;
+    font-family: Jazz LET, fantasy;
     position: relative; /* Ensure the ::after can be positioned correctly */
 }
 

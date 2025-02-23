@@ -1,71 +1,55 @@
-/* Original one
 import './Keyboard.css';
+import { useState, useEffect } from 'react';
 
 function Keyboard({ onKeyPress }) {
-    const rows = [
-        ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-        ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-        ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
-    ];
+  const [clickedKeys, setClickedKeys] = useState(new Set());
 
-    return (
-        <div className="keyboard">
-            {rows.map((row, rowIndex) => (
-                <div className="keyboard-row" key={rowIndex}>
-                    {row.map((key, keyIndex) => (
-                        <button
-                            key={keyIndex}
-                            className="keyboard-key"
-                            onClick={() => onKeyPress(key)} // Trigger onKeyPress on button click
-                        >
-                            {key}
-                        </button>
-                    ))}
-                </div>
-            ))}
-        </div>
-    );
-}
+  const rows = [
+    ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+    ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
+  ];
 
-export default Keyboard;
-*/
+  // Handle the key press and mark the key as clicked
+  const handleKeyPress = (key) => {
+    setClickedKeys((prevClickedKeys) => new Set(prevClickedKeys).add(key));
+    onKeyPress(key); // Call the onKeyPress callback passed in as a prop
+  };
 
-// has a slash through when button is clicked
-import './Keyboard.css';
-import { useState } from 'react';
-
-function Keyboard({ onKeyPress }) {
-    const [clickedKeys, setClickedKeys] = useState(new Set());
-
-    const rows = [
-        ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-        ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-        ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
-    ];
-
-    // Handle the key press and mark the key as clicked
-    const handleKeyPress = (key) => {
-        setClickedKeys((prevClickedKeys) => new Set(prevClickedKeys).add(key));
-        onKeyPress(key); // Call the onKeyPress callback passed in as a prop
+  // Listen for keydown events to simulate a button press
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const key = event.key.toUpperCase(); // Get the key and convert to uppercase
+      if (rows.flat().includes(key)) {  // Ensure that the key is part of our keyboard
+        handleKeyPress(key);
+      }
     };
 
-    return (
-        <div className="keyboard">
-            {rows.map((row, rowIndex) => (
-                <div className="keyboard-row" key={rowIndex}>
-                    {row.map((key, keyIndex) => (
-                        <button
-                            key={keyIndex}
-                            className={`keyboard-key ${clickedKeys.has(key) ? 'clicked' : ''}`}
-                            onClick={() => handleKeyPress(key)}
-                        >
-                            {key}
-                        </button>
-                    ))}
-                </div>
-            ))}
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [rows, handleKeyPress]);
+
+  return (
+    <div className="keyboard">
+      {rows.map((row, rowIndex) => (
+        <div className="keyboard-row" key={rowIndex}>
+          {row.map((key, keyIndex) => (
+            <button
+              key={keyIndex}
+              className={`keyboard-key ${clickedKeys.has(key) ? 'clicked' : ''}`}
+              onClick={() => handleKeyPress(key)}
+            >
+              {key}
+            </button>
+          ))}
         </div>
-    );
+      ))}
+    </div>
+  );
 }
 
 export default Keyboard;
