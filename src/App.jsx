@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Keyboard from './components/Keyboard';
 import WordPlacement from './components/WordPlacement';
+// import AlbumCover from './components/AlbumCover';
 
 const App = () => {
   const wordToGuess = "Paris In the Rain";  // Target word to guess
@@ -27,6 +28,7 @@ const App = () => {
     <div className="container">
       <Keyboard onKeyPress={handleKeyPress} />
       <WordPlacement guessedWords={guessedWords} />
+
     </div>
   );
 };

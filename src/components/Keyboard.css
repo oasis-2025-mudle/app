@@ -1,8 +1,8 @@
 /* General Keyboard Styling */
 .keyboard {
-    height: 580px;
+    height: 680px;
     position: absolute; /* Use absolute positioning */
-    bottom: 25px; /* Distance from the bottom */
+    bottom: 50px; /* Distance from the bottom */
     left: 75%; /* Center the keyboard horizontally */
     transform: translateX(-50%); /* Adjust for perfect centering */
     padding: 12px;
@@ -19,6 +19,7 @@
 
 /* Row styling */
 .keyboard-row {
+    height: 80px;
     display: flex;
     justify-content: center;
     margin-bottom: 5px; /* Increase space between rows */
@@ -26,8 +27,8 @@
 
 /* Key styling */
 .keyboard-key {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 65px;
     padding: 10px;
     margin: 2px;
     border: 2px solid #dcacea;
@@ -36,7 +37,6 @@
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
     color: #bd51df;
     font-family: Jazz LET, fantasy;
     position: relative; /* Ensure the ::after can be positioned correctly */

@@ -3,36 +3,32 @@ body {
     display: flex;
     justify-content: flex-end; /* Align horizontally to the right */
     align-items: flex-start; /* Align vertically to the top */
+    transform: translateX(-1%);
     height: 100vh;
     width: 100%;
-    margin: 0;
-    position: relative; /* Make sure it's relative for absolute positioning */
+    position: relative; /* Optional if you want relative positioning for other elements */
 }
 
 .word-placement {
     text-align: center;
     padding: 15px;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     transition: width 0.3s ease, height 0.3s ease;
     margin: 0 auto;
     width: auto;
-    min-height: 90px;
-    height: auto;
-    position: absolute; /* Position it absolutely */
-    top: 120px; /* Space from the top */
-    right: 160px; /* Space from the right */
+    min-height: 100px;
+    position: relative; /* Remove absolute positioning */
+    top: 150px; /* Space from the top */
+    right: 180px; /* Remove right positioning */
+    align-self: flex-start; /* Align to the top */
 }
+
 
 h1 {
     font-family: Jazz LET, fantasy;
     font-size: 3.0rem;
-    font-family: Marker Felt, fantasy;
     color: #bd51df;
-    margin-bottom: 10px;
+    margin-bottom: 30px; /* Add space below the title */
     font-weight: bold;
 }
 
@@ -53,7 +49,7 @@ h1 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .letter {
@@ -84,5 +80,5 @@ h1 {
 
 .space {
     display: inline-block;
-    width: 40px;
+    width: 50px;
 }
