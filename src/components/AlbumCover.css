@@ -1,16 +1,42 @@
-.album-cover-container {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 150px;
-    height: 150px;
-  }
-  
-  .album-cover-container img {
-    width: 10%;
-    height: 10%;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-  }
-  
+.album-container {
+  position: absolute;  /* Allows precise positioning */
+  top: 10px;           /* Distance from the top */
+  left: 10px;          /* Distance from the left */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items within the container */
+  gap: 10px;
+}
+
+.album-cover {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.spotify-container {
+  position: relative;
+  width: 300px;
+  height: 80px;
+  overflow: hidden;
+}
+
+/* Hide track name by placing an overlay */
+.hide-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;  /* Adjust to only cover the song name */
+  background-color: black;  /* Match Spotify theme */
+  z-index: 2;
+}
+
+/* Style the embedded player */
+.spotify-player {
+  width: 100%;
+  height: 80px;
+  border-radius: 10px;
+  filter: brightness(1.2);
+}
