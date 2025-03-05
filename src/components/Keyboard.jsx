@@ -1,7 +1,8 @@
 import './Keyboard.css';
 import { useState, useEffect } from 'react';
+import WordPlacement from './WordPlacement'; // Import WordPlacement
 
-function Keyboard({ onKeyPress }) {
+function Keyboard({ onKeyPress, guessedWords }) {
   const [clickedKeys, setClickedKeys] = useState(new Set());
 
   const rows = [
@@ -35,19 +36,27 @@ function Keyboard({ onKeyPress }) {
 
   return (
     <div className="keyboard">
-      {rows.map((row, rowIndex) => (
-        <div className="keyboard-row" key={rowIndex}>
-          {row.map((key, keyIndex) => (
-            <button
-              key={keyIndex}
-              className={`keyboard-key ${clickedKeys.has(key) ? 'clicked' : ''}`}
-              onClick={() => handleKeyPress(key)}
-            >
-              {key}
-            </button>
-          ))}
-        </div>
-      ))}
+      {/* WordPlacement component at the top of the keyboard */}
+      <div className="word-placement-wrapper">
+        <WordPlacement guessedWords={guessedWords} />
+      </div>
+
+      {/* The keyboard layout */}
+      <div className="keyboard-body">
+        {rows.map((row, rowIndex) => (
+          <div className="keyboard-row" key={rowIndex}>
+            {row.map((key, keyIndex) => (
+              <button
+                key={keyIndex}
+                className={`keyboard-key ${clickedKeys.has(key) ? 'clicked' : ''}`}
+                onClick={() => handleKeyPress(key)}
+              >
+                {key}
+              </button>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

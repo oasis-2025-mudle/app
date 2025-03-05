@@ -1,0 +1,12 @@
+.word-placement-wrapper {
+    margin-bottom: 20px; /* Add space between the word placement and keyboard */
+    margin-left: 300px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .keyboard-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
