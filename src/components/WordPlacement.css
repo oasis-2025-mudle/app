@@ -1,51 +1,49 @@
 body {
     font-family: Bookman, URW Bookman L, serif;
     display: flex;
-    justify-content: flex-end; /* Align horizontally to the right */
-    align-items: flex-start; /* Align vertically to the top */
+    justify-content: flex-end;
+    align-items: flex-start;
     transform: translateX(-1%);
     height: 100vh;
     width: 100%;
-    position: relative; /* Optional if you want relative positioning for other elements */
+    position: relative;
 }
 
-.word-placement {
-    text-align: center;
-    padding: 15px;
-    border-radius: 10px;
-    transition: width 0.3s ease, height 0.3s ease;
-    margin: 0 auto;
-    width: auto;
-    min-height: 100px;
-    position: relative; /* Remove absolute positioning */
-    top: 150px; /* Space from the top */
-    right: 180px; /* Remove right positioning */
-    align-self: flex-start; /* Align to the top */
+.mudle-title { 
+    margin-bottom: 200px;
 }
-
 
 h1 {
     font-family: Jazz LET, fantasy;
-    font-size: 3.0rem;
+    font-size: 3rem;
     color: #bd51df;
-    margin-bottom: 30px; /* Add space below the title */
     font-weight: bold;
+    margin: -50px 0 15px 0; 
+    position: relative;
+    top: -15px; /* Move headings up within container */
 }
 
-.word {
-    font-family: Jazz LET, fantasy;
-    color: #c47adb;
-    font-size: 2.0rem;
-    margin: 10px 0;
+/* Adjust the word-placement positioning */
+.word-placement {
+    z-index: 1;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px; /* Reduced from 150px */
+    right: 180px;
+    transform: translateY(-20px); /* Fine upward adjustment */
+}
+
+.word-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    font-family: Bookman, URW Bookman L, serif;
+    gap: 15px;
+    margin: 0 0;
 }
 
-.line {
+.word-line {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -59,6 +57,33 @@ h1 {
     position: relative;
     display: inline-block;
     color: #bf63db;
+    font-size: 2rem;
+    min-width: 40px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.letter.empty {
+    color: transparent;
+    position: relative;
+}
+
+.letter.empty::after {
+    content: "_";
+    color: #bf63db;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.letter.filled {
+    animation: letterPop 0.3s ease;
+}
+
+@keyframes letterPop {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 .letter::before {
@@ -74,7 +99,7 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
-.letter:not(.space):hover::before {
+.letter:hover::before {
     opacity: 1;
 }
 
