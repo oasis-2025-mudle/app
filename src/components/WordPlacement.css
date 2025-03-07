@@ -9,10 +9,6 @@ body {
     position: relative;
 }
 
-.mudle-title { 
-    margin-bottom: 200px;
-}
-
 h1 {
     font-family: Jazz LET, fantasy;
     font-size: 3rem;
@@ -20,7 +16,7 @@ h1 {
     font-weight: bold;
     margin: -50px 0 15px 0; 
     position: relative;
-    top: -15px; /* Move headings up within container */
+    white-space: nowrap;
 }
 
 /* Adjust the word-placement positioning */
@@ -39,7 +35,7 @@ h1 {
 .word-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     margin: 0 0;
 }
 
