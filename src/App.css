@@ -1,6 +1,6 @@
 .word-placement-wrapper {
-    margin-bottom: 67px; /* Add space between the word placement and keyboard */
-    margin-left: 350px;
+    margin-bottom: 20px; /* Add space between the word placement and keyboard */
+    margin-left: 300px;
     display: flex;
     justify-content: center;
   }
