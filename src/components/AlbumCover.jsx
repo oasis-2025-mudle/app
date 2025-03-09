@@ -8,15 +8,12 @@ const AlbumCover = ({ albumCover, onClick, isPlaying, hasPreview }) => {
         src={albumCover} 
         alt="Album Cover" 
         className="album-cover" 
-        onClick={onClick} // ✅ Clicking the album cover also plays music
+        onClick={hasPreview ? onClick : undefined} // Only clickable if preview exists
       />
-
-      {hasPreview ? (
+      {hasPreview && (
         <button className="play-button" onClick={onClick}>
           {isPlaying ? "⏸ Pause" : "▶ Play"}
         </button>
-      ) : (
-        <p className="no-preview">No preview available</p>
       )}
     </div>
   );

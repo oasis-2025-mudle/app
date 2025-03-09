@@ -20,8 +20,8 @@ const App = () => {
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState("");
-  const [chances, setChances] = useState(7);  // Set initial chances to 7
-  const [gameOver, setGameOver] = useState(false); // New state to manage game over logic
+  const [chances, setChances] = useState(7);  
+  const [gameOver, setGameOver] = useState(false); 
 
   // 🔹 Function to Fetch Spotify Access Token
   const getSpotifyToken = async () => {
@@ -39,13 +39,8 @@ const App = () => {
       });
 
       const data = await response.json();
-      if (!data.access_token) {
-        console.error("Failed to get Spotify token", data);
-        return null;
-      }
-      return data.access_token;
-    } catch (error) {
-      console.error("Error retrieving Spotify token:", error);
+      return data.access_token || null;
+    } catch {
       return null;
     }
   };
@@ -61,11 +56,8 @@ const App = () => {
       });
 
       const data = await response.json();
-      console.log("Spotify Track Data:", data);
-
       return data.preview_url || null;
-    } catch (error) {
-      console.error("Error fetching track preview URL:", error);
+    } catch {
       return null;
     }
   };
@@ -89,17 +81,13 @@ const App = () => {
         const songName = randomRow[0]?.replace(/"/g, "").trim() || "Wonderwall";
         const albumCoverUrl = randomRow[2]?.replace(/"/g, "").trim() || "";
         const spotifyUrl = randomRow[3]?.replace(/"/g, "").trim() || "";
-
         const genre = randomRow[1]?.replace(/"/g, "").trim() || "Unknown genre";
         const artist = randomRow[4]?.replace(/"/g, "").trim() || "Unknown artist";
         const year = randomRow[5]?.replace(/"/g, "").trim() || "Unknown year";
 
-        // Set individual hint values
         setGenre(genre);
         setArtist(artist);
         setYear(year);
-
-        console.log("Spotify URL:", spotifyUrl);
 
         const trackIdMatch = spotifyUrl.match(/track\/([a-zA-Z0-9]+)(\?|$)/);
         const trackId = trackIdMatch ? trackIdMatch[1] : null;
@@ -109,22 +97,14 @@ const App = () => {
           previewAudioUrl = await fetchPreviewUrlFromSpotify(trackId);
         }
 
-        if (previewAudioUrl) {
-          console.log("✅ Preview URL found:", previewAudioUrl);
-          setPreviewUrl(previewAudioUrl);
-          setHasPreview(true);
-          audioRef.current.src = previewAudioUrl;
-        } else {
-          console.warn("⚠️ No preview available for this song.");
-          setPreviewUrl("");
-          setHasPreview(false);
-        }
+        setPreviewUrl(previewAudioUrl || ""); 
+        setHasPreview(!!previewAudioUrl);
 
         setWordToGuess(songName);
         setAlbumCover(albumCoverUrl);
         setGuessedWords(songName.split(" ").map(word => Array(word.length).fill("_")));
-      } catch (error) {
-        console.error("Error fetching song data:", error);
+      } catch {
+        setLoading(false);
       } finally {
         setLoading(false);
       }
@@ -133,41 +113,33 @@ const App = () => {
     fetchSong();
   }, []);
 
-  // 🔹 Handle Play/Pause
-  const handlePlayPause = () => {
-    if (!hasPreview || !previewUrl) {
-      alert("No preview available for this song");
-      return;
-    }
-
-    if (isPlaying) {
+  // 🔹 Automatically Play Preview When `previewUrl` Updates
+  useEffect(() => {
+    if (previewUrl) {
       audioRef.current.pause();
-      setIsPlaying(false);
+      audioRef.current.src = previewUrl;
+      audioRef.current.load();
+      audioRef.current.play().catch(() => setHasPreview(false));
+      setIsPlaying(true);
     } else {
-      audioRef.current
-        .play()
-        .then(() => setIsPlaying(true))
-        .catch(error => {
-          console.error("Error playing audio:", error);
-          setHasPreview(false);
-        });
+      setIsPlaying(false);
     }
-  };
+  }, [previewUrl]);
+
+  // 🔹 Handle Key Presses for the Game
   const handleKeyPress = (key) => {
-    // Check if the pressed key is part of the word
     const isCorrectGuess = wordToGuess.toLowerCase().includes(key.toLowerCase());
   
     if (!isCorrectGuess) {
       setChances((prevChances) => {
         const newChances = prevChances - 1;
         if (newChances <= 0) {
-          setGameOver(true); // End game when chances run out
+          setGameOver(true); 
         }
         return newChances;
       });
     }
   
-    // Update guessed words with the correct letters if guessed correctly
     setGuessedWords((prev) =>
       prev.map((wordArr, i) =>
         wordArr.map((char, j) =>
@@ -179,8 +151,6 @@ const App = () => {
     );
   };
 
-
-
   return (
     <div className="container">
       {loading ? (
@@ -190,7 +160,6 @@ const App = () => {
           <div className="right-side-panel">
             <AlbumCover
               albumCover={albumCover}
-              onClick={handlePlayPause}
               isPlaying={isPlaying}
               hasPreview={hasPreview}
             />
@@ -199,18 +168,14 @@ const App = () => {
               artist={artist}
               year={year}
             />
-            {/* Add Hangman component here */}
-            <Hangman chances={chances} /> {/* Display the Hangman game */}
+            <Hangman chances={chances} /> 
           </div>
 
           <audio
             ref={audioRef}
             src={previewUrl || ""}
             crossOrigin="anonymous"
-            onError={(e) => {
-              console.error("Audio error:", e.target.error);
-              setHasPreview(false);
-            }}
+            onError={() => setHasPreview(false)}
           />
           <Keyboard onKeyPress={handleKeyPress} guessedWords={guessedWords} />
         </>
