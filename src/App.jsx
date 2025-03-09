@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect, useRef } from 'react';
 import Keyboard from './components/Keyboard';
 import AlbumCover from './components/AlbumCover';
+import HintButtons from './components/HintButtons';
 
 const CLIENT_ID = "YOUR_SPOTIFY_CLIENT_ID";
 const CLIENT_SECRET = "YOUR_SPOTIFY_CLIENT_SECRET";
@@ -15,6 +16,9 @@ const App = () => {
   const [hasPreview, setHasPreview] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(new Audio());
+  const [artist, setArtist] = useState("");
+  const [genre, setGenre] = useState("");
+  const [year, setYear] = useState("");
 
   // 🔹 Function to Fetch Spotify Access Token
   const getSpotifyToken = async () => {
@@ -68,7 +72,7 @@ const App = () => {
     const fetchSong = async () => {
       const SHEET_ID = "1vxVGzTkjGr0rzm0rr70HnOIE6BsThAiCooCPzYFbQvw";
       const SHEET_NAME = "Oasis Song Data";
-      const RANGE = "A2:E55";
+      const RANGE = "A2:F55";
 
       try {
         const response = await fetch(
@@ -81,7 +85,16 @@ const App = () => {
         const randomRow = rows[Math.floor(Math.random() * rows.length)];
         const songName = randomRow[0]?.replace(/"/g, "").trim() || "Wonderwall";
         const albumCoverUrl = randomRow[2]?.replace(/"/g, "").trim() || "";
-        const spotifyUrl = randomRow[4]?.replace(/"/g, "").trim() || "";
+        const spotifyUrl = randomRow[3]?.replace(/"/g, "").trim() || "";
+
+        const genre = randomRow[1]?.replace(/"/g, "").trim() || "Unknown genre";
+        const artist = randomRow[4]?.replace(/"/g, "").trim() || "Unknown artist";
+        const year = randomRow[5]?.replace(/"/g, "").trim() || "Unknown year";
+
+        // Set individual hint values
+        setGenre(genre);
+        setArtist(artist);
+        setYear(year);
 
         console.log("Spotify URL:", spotifyUrl);
 
@@ -159,12 +172,20 @@ const App = () => {
         <div className="loading">Loading songs...</div>
       ) : (
         <>
-          <AlbumCover
-            albumCover={albumCover}
-            onClick={handlePlayPause}
-            isPlaying={isPlaying}
-            hasPreview={hasPreview}
-          />
+          <div className="right-side-panel">
+            <AlbumCover
+              albumCover={albumCover}
+              onClick={handlePlayPause}
+              isPlaying={isPlaying}
+              hasPreview={hasPreview}
+            />
+            <HintButtons
+              genre={genre}
+              artist={artist}
+              year={year}
+            />
+          </div>
+
           <audio
             ref={audioRef}
             src={previewUrl || ""}

@@ -1,0 +1,71 @@
+/* HintButtons.css */
+.hint-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: lavender;
+    padding: 20px;
+    border-radius: 30px;
+    border: 2px solid #bd51df;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 270px;
+    margin-left: -40px;
+    width: 300px; /* Increased width for better text fit */
+}
+
+.hint-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 2px solid #dcacea;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 140px;
+    height: 80px; /* Fixed height for consistent layout */
+    font-family: Jazz LET, fantasy;
+    position: relative;
+}
+
+/* Formatted text styles */
+.hint-button span {
+    display: block;
+    line-height: 1.2;
+}
+
+.hint-label {
+    font-size: 14px;
+    color: #9060a0;
+    margin-bottom: 4px;
+}
+
+.hint-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #bd51df;
+}
+
+/* Button states */
+.hint-button:hover:not(.revealed) {
+    background-color: #e7c7ec;
+    transform: translateY(-2px);
+}
+
+.hint-button:active:not(.revealed) {
+    background-color: #c47adb;
+    transform: translateY(1px);
+}
+
+.hint-button.revealed {
+    background-color: #f9f9f9;
+    cursor: default;
+    border-color: #bd51df;
+}
+
+/* Remove slash effect since we're showing text */
+.hint-button.revealed::after {
+    content: none;
+}

@@ -1,12 +1,33 @@
 .word-placement-wrapper {
-    margin-bottom: 67px; /* Add space between the word placement and keyboard */
-    margin-left: 350px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .keyboard-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
+  margin-bottom: 67px; /* Add space between the word placement and keyboard */
+  margin-left: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Add these new styles */
+.right-side-panel {
+  position: fixed;
+  top: 20px;
+  /* Match album cover's top position */
+  left: 40px;
+  /* Match album cover's left position */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1000;
+  /* Match album cover's z-index */
+}
+
+/* Adjust existing .album-section */
+.album-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
