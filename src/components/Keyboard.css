@@ -38,7 +38,7 @@
     font-weight: bold;
     cursor: pointer;
     color: #bd51df;
-    font-family: Jazz LET, fantasy;
+    font-family: 'Montserrat', sans-serif;
     position: relative; /* Ensure the ::after can be positioned correctly */
 }
 

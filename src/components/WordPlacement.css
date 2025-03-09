@@ -1,5 +1,5 @@
 body {
-    font-family: Bookman, URW Bookman L, serif;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-    font-family: Jazz LET, fantasy;
+    font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
     color: #bd51df;
     font-weight: bold;

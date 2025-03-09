@@ -9,3 +9,14 @@ html {
   align-items: center; 
   background-color: #ffffff; 
 }
+
+/* Example: Define the Montserrat font with specific weights */
+.montserrat-regular {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; /* Normal weight */
+}
+
+.montserrat-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; /* Bold weight */
+}

@@ -1,16 +1,17 @@
 /* HintButtons.css */
 .hint-buttons-container {
+    position: absolute; /* Set position to absolute to control its placement */
+    top: 450px; /* Distance from the top */
+    left: 20px; /* Adjust this to move the container away from the left side of the screen */
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     background-color: lavender;
     padding: 20px;
     border-radius: 30px;
-    border: 2px solid #bd51df;
+    border: 1px solid purple;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 270px;
-    margin-left: -40px;
-    width: 300px; /* Increased width for better text fit */
+    width: 550px; /* Increased width for better text fit */
 }
 
 .hint-button {
@@ -26,7 +27,7 @@
     transition: all 0.3s;
     min-width: 140px;
     height: 80px; /* Fixed height for consistent layout */
-    font-family: Jazz LET, fantasy;
+    font-family: 'Montserrat', sans-serif;
     position: relative;
 }
 
@@ -37,7 +38,7 @@
 }
 
 .hint-label {
-    font-size: 14px;
+    font-size: 20px;
     color: #9060a0;
     margin-bottom: 4px;
 }
