@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import Keyboard from './components/Keyboard';
 import AlbumCover from './components/AlbumCover';
 import HintButtons from './components/HintButtons';
-import Hangman from './components/Hangman';
+import Hangman from './components/Hangman'; // Import Hangman component
 
 const CLIENT_ID = "4e95d7b4a2664e34ac4825dd2df8e500";
 const CLIENT_SECRET = "bd4c5c8893a44948854e193af728ca66";
@@ -20,7 +20,8 @@ const App = () => {
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState("");
-  const [chances, setChances] = useState(7);
+  const [chances, setChances] = useState(7);  // Set initial chances to 7
+  const [gameOver, setGameOver] = useState(false); // New state to manage game over logic
 
   // 🔹 Function to Fetch Spotify Access Token
   const getSpotifyToken = async () => {
@@ -103,9 +104,6 @@ const App = () => {
         const trackIdMatch = spotifyUrl.match(/track\/([a-zA-Z0-9]+)(\?|$)/);
         const trackId = trackIdMatch ? trackIdMatch[1] : null;
         
-
-        console.log("Extracted Track ID:", trackId);
-
         let previewAudioUrl = null;
         if (trackId) {
           previewAudioUrl = await fetchPreviewUrlFromSpotify(trackId);
@@ -155,46 +153,32 @@ const App = () => {
         });
     }
   };
-
- // 🔹 Handle Keyboard Input
-const handleKeyPress = (key) => {
-  // Check if the pressed key is part of the word
-  const isCorrectGuess = wordToGuess.toLowerCase().includes(key.toLowerCase());
-
-  if (!isCorrectGuess) {
-    setChances((prevChances) => {
-      const newChances = prevChances - 1;
-      if (newChances <= 0) {
-        setGameOver(true); // End game when chances run out
-      }
-      return newChances;
-    });
-  }
-
-  const loseChance = () => {
-    if (chances > 0) {
-      setChances(chances - 1);
+  const handleKeyPress = (key) => {
+    // Check if the pressed key is part of the word
+    const isCorrectGuess = wordToGuess.toLowerCase().includes(key.toLowerCase());
+  
+    if (!isCorrectGuess) {
+      setChances((prevChances) => {
+        const newChances = prevChances - 1;
+        if (newChances <= 0) {
+          setGameOver(true); // End game when chances run out
+        }
+        return newChances;
+      });
     }
+  
+    // Update guessed words with the correct letters if guessed correctly
+    setGuessedWords((prev) =>
+      prev.map((wordArr, i) =>
+        wordArr.map((char, j) =>
+          wordToGuess.split(" ")[i][j].toLowerCase() === key.toLowerCase()
+            ? wordToGuess.split(" ")[i][j]
+            : char
+        )
+      )
+    );
   };
 
-  return (
-    <div className="app-container">
-      <Hangman chances={chances} />
-      <button onClick={loseChance}>Lose a Chance</button>
-    </div>
-  );
-  
-  // Update guessed words with the correct letters if guessed correctly
-  setGuessedWords((prev) =>
-    prev.map((wordArr, i) =>
-      wordArr.map((char, j) =>
-        wordToGuess.split(" ")[i][j].toLowerCase() === key.toLowerCase()
-          ? wordToGuess.split(" ")[i][j]
-          : char
-      )
-    )
-  );
-};
 
 
   return (
@@ -215,6 +199,8 @@ const handleKeyPress = (key) => {
               artist={artist}
               year={year}
             />
+            {/* Add Hangman component here */}
+            <Hangman chances={chances} /> {/* Display the Hangman game */}
           </div>
 
           <audio

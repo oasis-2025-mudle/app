@@ -20,6 +20,7 @@ function Keyboard({ onKeyPress, guessedWords }) {
     setClickedKeys((prevClickedKeys) => new Set(prevClickedKeys).add(key));
     onKeyPress(key); // Call the onKeyPress callback passed in as a prop
     
+    
     // If the pressed key is wrong, decrement chances
     if (!checkIfKeyInWord(key)) {
       setChances((prevChances) => {
