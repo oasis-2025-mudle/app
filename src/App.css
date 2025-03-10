@@ -49,7 +49,7 @@
   position: fixed;  /* Allows flexible positioning */
   top: 440px;          /* Adjust the vertical position */
   left: 120px;          /* Adjust the horizontal position */
-  width: 185px;        /* Adjust width */
+  width: 225px;        /* Adjust width */
   height: 40px;       /* Adjust height */
   background: black;   /* Solid black color */
   border-radius: 5px;  /* Optional: Adds rounded corners */
