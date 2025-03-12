@@ -1,20 +1,36 @@
 /* WinLosePage.css */
 .win-lose-page {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full viewport height */
     background-color: #f2f2f2;
     text-align: center;
+    position: relative;
+  }
+  
+  .fireworks {
+    position: absolute; /* Make sure the fireworks don't interfere with the content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent fireworks from interfering with button clicks */
+  }
+  
+  .content {
+    position: relative; /* Ensure content sits above the fireworks */
+    z-index: 1; /* Ensure content is above the fireworks */
     padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
   }
   
   .win-lose-page h1 {
     font-size: 3rem;
     font-weight: bold;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
   }
@@ -51,3 +67,13 @@
     background-color: #45a049; /* Darker green shade when hovered */
   }
   
+  @media (max-width: 600px) {
+    .win-lose-page h1 {
+      font-size: 2.5rem;
+    }
+  
+    .listen-button, .play-again-button {
+      font-size: 1rem;
+      padding: 12px 24px;
+    }
+  }  
