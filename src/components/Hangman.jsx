@@ -2,33 +2,34 @@ import React from 'react';
 import './hangman.css';
 
 const Hangman = ({ chances }) => {
-  // We start with 7 chances. As chances drop,
-  // we calculate how many parts of the man to show.
-  // For example, if chances === 6, then 1 part (head) is shown.
-  const maxChances = 7;
-  const partsToShow = maxChances - chances;
+  // Map the chances to corresponding image steps, including step0.PNG for no wrong guesses
+  const hangmanImages = [
+    'step0.PNG', // 7 chances left (no wrong guesses yet)
+    'step1.PNG', // 6 chances left
+    'step2.PNG', // 5 chances left
+    'step3.PNG', // 4 chances left
+    'step4.PNG', // 3 chances left
+    'step5.PNG', // 2 chances left
+    'step6.PNG', // 1 chance left
+    'step7.PNG', // 0 chances left (game over)
+  ];
+
+  // Determine the image to display based on remaining chances
+  const currentImage = hangmanImages[7 - chances]; // Reverse the order by subtracting from 7
 
   return (
     <div className="hangman-container">
-      {/* Optional: Hangman stand */}
       <div className="hangman-stand">
-        <div className="hangman-base"></div>
-        <div className="hangman-post"></div>
         <div className="hangman-beam"></div>
-        <div className="hangman-rope"></div>
-      </div>
-      {/* Hangman figure */}
-      <div className="hangman-man">
-        {partsToShow > 0 && (
-          // Replace this div with an <img> tag later to show a custom head image
-          <div className="hangman-head"></div>
-        )}
-        {partsToShow > 1 && <div className="hangman-body"></div>}
-        {partsToShow > 2 && <div className="hangman-left-arm"></div>}
-        {partsToShow > 3 && <div className="hangman-right-arm"></div>}
-        {partsToShow > 4 && <div className="hangman-left-leg"></div>}
-        {partsToShow > 5 && <div className="hangman-right-leg"></div>}
-        {partsToShow > 6 && <div className="hangman-face"></div>}
+        <div className="hangman-mid">
+          <div className="hangman-post"></div>
+          <div className="hangman-main">
+            <div className="hangman-rope"></div>
+            {/* Display hangman image based on chances */}
+            <img src={currentImage} alt={`step${7 - chances}.PNG`} />
+          </div>
+        </div>
+        <div className="hangman-base"></div>
       </div>
     </div>
   );

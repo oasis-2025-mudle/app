@@ -34,8 +34,8 @@
 
 .spotify-container {
   position: absolute;  /* Allows flexible positioning */
-  bottom: 4px;       /* Adjust as needed */
-  right: -5px;        /* Moves the player to the bottom-right corner */
+  bottom: -8px;       /* Adjust as needed */
+  right: -20px;        /* Moves the player to the bottom-right corner */
   width: 300px;       /* Matches iframe width */
   height: 80px;       /* Matches iframe height */
 }
@@ -48,7 +48,7 @@
 .solid-block {
   position: fixed;  /* Allows flexible positioning */
   top: 440px;          /* Adjust the vertical position */
-  left: 120px;          /* Adjust the horizontal position */
+  left: 133px;          /* Adjust the horizontal position */
   width: 225px;        /* Adjust width */
   height: 40px;       /* Adjust height */
   background: black;   /* Solid black color */

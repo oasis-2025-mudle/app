@@ -1,11 +1,9 @@
 import './Keyboard.css';
 import { useState, useEffect } from 'react';
-import WordPlacement from './WordPlacement'; // Import WordPlacement
+import WordPlacement from './WordPlacement';
 
-function Keyboard({ onKeyPress, guessedWords }) {
+function Keyboard({ onKeyPress, guessedWords, chances, gameOver }) {
   const [clickedKeys, setClickedKeys] = useState(new Set());
-  const [chances, setChances] = useState(7); // Initialize chances to 7
-  const [gameOver, setGameOver] = useState(false); // Track if game is over
 
   const rows = [
     ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -15,28 +13,10 @@ function Keyboard({ onKeyPress, guessedWords }) {
 
   // Handle the key press and mark the key as clicked
   const handleKeyPress = (key) => {
-    if (gameOver) return; // Prevent further key presses if game is over
+    if (gameOver || clickedKeys.has(key)) return; // Prevent further key presses if game is over or the key has been clicked already
     
     setClickedKeys((prevClickedKeys) => new Set(prevClickedKeys).add(key));
     onKeyPress(key); // Call the onKeyPress callback passed in as a prop
-    
-    
-    // If the pressed key is wrong, decrement chances
-    if (!checkIfKeyInWord(key)) {
-      setChances((prevChances) => {
-        const newChances = prevChances - 1;
-        if (newChances === 0) {
-          setGameOver(true); // Game over when chances run out
-        }
-        return newChances;
-      });
-    }
-  };
-
-  // Example function to check if the key is in the word, replace with your actual logic
-  const checkIfKeyInWord = (key) => {
-    // Your word checking logic goes here. For example:
-    return guessedWords.some((word) => word.includes(key));
   };
 
   // Listen for keydown events to simulate a button press
@@ -54,7 +34,7 @@ function Keyboard({ onKeyPress, guessedWords }) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [rows, handleKeyPress]);
+  }, [clickedKeys, gameOver, onKeyPress]);
 
   return (
     <div className="keyboard">

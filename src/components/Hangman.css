@@ -7,10 +7,8 @@ body {
 
 /* Hangman container */
 .hangman-container {
-  width: 200px;
-  height: 300px;
   margin-left: 400px;  /* Keep the left margin for positioning */
-  margin-top: -750px;       /* Ensure the container starts at the top of the screen */
+  margin-top: -700px;       /* Ensure the container starts at the top of the screen */
   display: flex;
   flex-direction: column-reverse; /* Stack the parts from bottom to top */
   justify-content: flex-start; /* Align the parts towards the top */
@@ -19,101 +17,55 @@ body {
 
 /* Stand styling */
 .hangman-stand {
-  width: 250px;
+  width: 300px;
   display: flex;
-  flex-direction: column-reverse; /* Ensure that the base is at the bottom */
-  align-items: center; /* Centering the stand elements */
-}
-
-.hangman-base {
-  width: 100%;
-  height: 10px;
-  background-color: #000;
-}
-
-.hangman-post {
-  width: 10px;
-  height: 200px;
-  background-color: #000;
+  flex-direction: column;
+  margin-bottom: -90px;
+  margin-left: -40px;
 }
 
 .hangman-beam {
-  width: 100px;
-  height: 10px;
-  background-color: #000;
-}
-
-.hangman-rope {
-  width: 2px;
-  height: 20px;
-  background-color: #000;
-}
-
-/* Hangman man parts */
-.hangman-man {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-/* Head */
-.hangman-head {
-  width: 30px;
-  height: 30px;
-  border: 2px solid #000;
-  border-radius: 50%;
-  background-color: #fff;
-}
-
-/* Body */
-.hangman-body {
-  width: 2px;
-  height: 50px;
-  background-color: #000;
-  margin: 0 auto;
-}
-
-/* Left Arm */
-.hangman-left-arm {
-  width: 30px;
-  height: 2px;
-  background-color: #000;
-  margin-top: 10px;
-  margin-left: -30px;
-}
-
-/* Right Arm */
-.hangman-right-arm {
-  width: 30px;
-  height: 2px;
-  background-color: #000;
-  margin-top: 10px;
-  margin-left: 2px;
-}
-
-/* Left Leg */
-.hangman-left-leg {
-  width: 30px;
-  height: 2px;
-  background-color: #000;
-  margin-top: 20px;
-  margin-left: -30px;
-}
-
-/* Right Leg */
-.hangman-right-leg {
-  width: 30px;
-  height: 2px;
-  background-color: #000;
-  margin-top: 20px;
-  margin-left: 2px;
-}
-
-/* Extra detail (facial feature) */
-.hangman-face {
-  width: 30px;
+  width: 50%;
   height: 5px;
   background-color: #000;
-  margin: 2px auto 0;
+}
+
+.hangman-mid {
+  display: flex;
+  padding: 0 16px;
+  justify-content: space-between;
+}
+
+.hangman-post {
+  width: 5px;
+  height: 320px;
+  background-color: #000;
+}
+
+.hangman-main {
+  position: relative;;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 5px;
+}
+
+.hangman-main .hangman-rope {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 4px);
+  width: 2px;
+  height: 56px;
+  background-color: #000;
+}
+
+.hangman-main img {
+  width: 180px;
+}
+
+.hangman-base {
+width: 100%;
+height: 5px;
+background-color: #000;
 }

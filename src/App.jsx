@@ -13,7 +13,7 @@ const App = () => {
   const [artist, setArtist] = useState("");
   const [year, setYear] = useState("");
   const [spotifyUrl, setSpotifyUrl] = useState("");
-  const [chances, setChances] = useState(7);
+  const [chances, setChances] = useState(7); // Only manage chances in App component
   const [gameOver, setGameOver] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -58,17 +58,19 @@ const App = () => {
 
   const handleKeyPress = (key) => {
     const isCorrectGuess = wordToGuess.toLowerCase().includes(key.toLowerCase());
-  
+
+    // Update chances only if the guess is incorrect
     if (!isCorrectGuess) {
       setChances((prevChances) => {
         const newChances = prevChances - 1;
         if (newChances <= 0) {
-          setGameOver(true);
+          setGameOver(true); // End the game if no chances are left
         }
         return newChances;
       });
     }
-  
+
+    // Update the guessed word array (for correct guesses)
     setGuessedWords((prev) =>
       prev.map((wordArr, i) =>
         wordArr.map((char, j) =>
@@ -108,7 +110,12 @@ const App = () => {
               </div>
             )}
           </div>
-          <Keyboard onKeyPress={handleKeyPress} guessedWords={guessedWords} />
+          <Keyboard
+            onKeyPress={handleKeyPress}
+            guessedWords={guessedWords}
+            chances={chances} // Pass chances as prop to Keyboard
+            gameOver={gameOver} // Pass gameOver state to Keyboard
+          />
         </>
       )}
     </div>
