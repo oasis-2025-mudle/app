@@ -1,32 +1,53 @@
 /* WinLosePage.css */
-.winlose-container {
+.win-lose-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
     background-color: #f2f2f2;
     text-align: center;
+    padding: 20px;
   }
   
-  .winlose-message {
+  .win-lose-page h1 {
     font-size: 3rem;
     font-weight: bold;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
   
-  .play-again-button {
-    padding: 12px 24px;
-    font-size: 1.5rem;
+  .result-message {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .listen-button, .play-again-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
     background-color: #ff6347; /* Tomato color for a playful look */
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Arial', sans-serif;
+    margin-top: 10px;
+  }
+  
+  .listen-button:hover, .play-again-button:hover {
+    background-color: #e5533b; /* Darker shade when hovered */
+    transform: translateY(-2px); /* Slight lift effect */
+  }
+  
+  .play-again-button {
+    background-color: #4caf50; /* Green color for a positive tone */
   }
   
   .play-again-button:hover {
-    background-color: #e5533b; /* Darker shade when hovered */
-  }  
+    background-color: #45a049; /* Darker green shade when hovered */
+  }
+  

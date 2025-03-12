@@ -94,12 +94,11 @@ const App = () => {
       });
     }
 
+    // Update guessedWords (replacing underscores with correct guesses)
     setGuessedWords((prev) =>
-      prev.map((wordArr, i) =>
-        wordArr.map((char, j) =>
-          wordToGuess.split(" ")[i][j].toLowerCase() === key.toLowerCase()
-            ? wordToGuess.split(" ")[i][j]
-            : char
+      prev.map((wordArr) =>
+        wordArr.map((char, index) =>
+          wordToGuess[index].toLowerCase() === key.toLowerCase() ? wordToGuess[index] : char
         )
       )
     );
@@ -107,7 +106,6 @@ const App = () => {
 
   // Reset the game to start fresh (simulate a page refresh)
   const handlePlayAgain = () => {
-    // Reset the game state to the initial values
     fetchSongData();
   };
 
@@ -119,7 +117,11 @@ const App = () => {
         <>
           {gameOver ? (
             // If game is over, show the win/lose page
-            <WinLosePage result={gameResult} onPlayAgain={handlePlayAgain} />
+            <WinLosePage 
+              result={gameResult} 
+              spotifyUrl={spotifyUrl} 
+              onPlayAgain={handlePlayAgain} 
+            />
           ) : (
             // Main game screen
             <>
