@@ -119,7 +119,11 @@ const App = () => {
         <>
           {gameOver ? (
             // If game is over, show the win/lose page
-            <WinLosePage result={gameResult} onPlayAgain={handlePlayAgain} />
+            <WinLosePage 
+              result={gameResult} 
+              spotifyUrl={spotifyUrl} 
+              onPlayAgain={handlePlayAgain} 
+            />
           ) : (
             // Main game screen
             <>

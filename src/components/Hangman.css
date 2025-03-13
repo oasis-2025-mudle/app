@@ -61,7 +61,8 @@ body {
 }
 
 .hangman-main img {
-  width: 180px;
+  width: 260px;
+  height: 260px;
 }
 
 .hangman-base {
