@@ -45,7 +45,7 @@ function Keyboard({ onKeyPress, guessedWords, chances, gameOver }) {
 
       {/* Display remaining chances */}
       <div className="chances-display">
-        <h3>Chances left: {chances}</h3>
+        <h3>★ Chances left: {chances}</h3>
       </div>
 
       {/* The keyboard layout */}

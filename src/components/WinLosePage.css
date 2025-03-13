@@ -12,10 +12,10 @@
   
   .video-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80%; /* Reduce the height of the video */
+    top: -200px;
+    left: -600px;
+    width: 80%;
+    height: 100%; /* Reduce the height of the video */
     object-fit: contain; /* Adjust the video to fit within the container, without cropping */
     z-index: -1; /* Place the video behind the content */
   }
@@ -40,7 +40,7 @@
   .win-lose-page h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: red; /* White text for better contrast on video background */
+    color: #517fab; /* White text for better contrast on video background */
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -49,33 +49,34 @@
   .result-message {
     margin-bottom: 20px;
     font-size: 1.2rem;
-    color: red; /* White text for better contrast on video background */
+    font-style: bold;
+    color: #517fab; /* White text for better contrast on video background */
   }
   
   .listen-button, .play-again-button {
     padding: 15px 30px;
     font-size: 1.2rem;
-    background-color: #ff6347; /* Tomato color for a playful look */
+    background-color: #517fab; /* Tomato color for a playful look */
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin-top: 10px;
   }
   
   .listen-button:hover, .play-again-button:hover {
-    background-color: #e5533b; /* Darker shade when hovered */
+    background-color: #254e7a; /* Darker shade when hovered */
     transform: translateY(-2px); /* Slight lift effect */
   }
   
   .play-again-button {
-    background-color: #4caf50; /* Green color for a positive tone */
+    background-color: #7ebce1; /* Green color for a positive tone */
   }
   
   .play-again-button:hover {
-    background-color: #45a049; /* Darker green shade when hovered */
+    background-color: #517fab; /* Darker green shade when hovered */
   }
   
   @media (max-width: 600px) {

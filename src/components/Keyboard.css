@@ -65,10 +65,10 @@
 .chances-display {
     font-family: 'Montserrat', sans-serif;
     color: #7ebce1; /* Purple text color */
-    font-size: 25px; /* Adjust font size for consistency */
+    font-size: 23px; /* Adjust font size for consistency */
     position: absolute; /* Position it relative to the nearest positioned ancestor (keyboard) */
     top: -110px; /* Adjust the top to position it above the keyboard */
-    left: 90%; /* Center the display horizontally */
+    left: 82%; /* Center the display horizontally */
     transform: translateX(-50%); /* To perfectly center it */
     text-align: center;
     z-index: 1; /* Ensure it's above the keyboard */

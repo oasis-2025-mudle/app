@@ -53,12 +53,12 @@ body {
 
 .solid-block {
   position: fixed;  /* Allows flexible positioning */
-  top: 445px;          /* Adjust the vertical position */
+  top: 430px;          /* Adjust the vertical position */
   left: 137px;          /* Adjust the horizontal position */
-  width: 220px;        /* Adjust width */
-  height: 35px;       /* Adjust height */
+  width: 225px;        /* Adjust width */
+  height: 50px;       /* Adjust height */
   
-  background: #f4f2eb;   /* Solid black color */
+  background: #c5e1ef;   /* Solid black color */
   border-radius: 5px;  /* Optional: Adds rounded corners */
   z-index: 10;         /* Ensures it's above other elements */
 }
