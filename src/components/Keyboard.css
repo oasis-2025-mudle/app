@@ -36,7 +36,7 @@
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    color: #9e5cd8; /* Purple text */
+    color: rgb(220, 85, 241); /* Purple text */
     font-family: 'Montserrat', sans-serif;
     position: relative; /* Ensure the ::after can be positioned correctly */
     transition: all 0.3s ease; /* Smooth transition for hover and active states */
@@ -44,7 +44,7 @@
 
 /* Hover effect on keys */
 .keyboard-key:hover {
-    background-color: #9b59b6; /* Purple background on hover */
+    background-color: #e1adf6; /* Purple background on hover */
     color: white; /* White text on hover */
     transform: translateY(-3px); /* Lift effect on hover */
 }
