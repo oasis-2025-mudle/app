@@ -1,5 +1,5 @@
 body {
-  background-color: #fff3c2;  /* Set your desired background color */
+  background-color: #c5e1ef;  /* Set your desired background color */
   width: 1000px;
 }
 
@@ -53,11 +53,12 @@ body {
 
 .solid-block {
   position: fixed;  /* Allows flexible positioning */
-  top: 440px;          /* Adjust the vertical position */
-  left: 133px;          /* Adjust the horizontal position */
-  width: 225px;        /* Adjust width */
-  height: 40px;       /* Adjust height */
-  background: black;   /* Solid black color */
+  top: 445px;          /* Adjust the vertical position */
+  left: 137px;          /* Adjust the horizontal position */
+  width: 220px;        /* Adjust width */
+  height: 35px;       /* Adjust height */
+  
+  background: #f4f2eb;   /* Solid black color */
   border-radius: 5px;  /* Optional: Adds rounded corners */
   z-index: 10;         /* Ensures it's above other elements */
 }

@@ -12,7 +12,7 @@ body {
 h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
-    color: #a72acd;
+    color: #7ebce1;
     font-weight: bold;
     margin: -50px 10 15px 0; 
     position: relative;
@@ -51,7 +51,7 @@ h1 {
     letter-spacing: 4px;
     position: relative;
     display: inline-block;
-    color: #bf63db;
+    color: #7ebce1;
     font-size: 2rem;
     min-width: 25px;
     text-transform: uppercase;
@@ -66,7 +66,7 @@ h1 {
 
 .letter.empty::after {
     content: "_";
-    color: #bf63db;
+    color: #7ebce1;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -97,6 +97,7 @@ h1 {
 
 .letter:hover::before {
     opacity: 1;
+    background-color: #c5e1ef;
 }
 
 .space {

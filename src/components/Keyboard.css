@@ -3,9 +3,9 @@
     height: 680px;
     margin-top: 145px; /* Distance from the top of the screen */
     padding: 12px;
-    border: 2px solid #9b59b6; /* Slightly more elegant border */
+    border: 3px solid #7ebce1; /* Slightly more elegant border */
     border-radius: 30px;
-    background-color: #f5dcff;
+    background-color: #f4f2eb;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     font-family: 'Jazz LET', fantasy;
     display: flex; /* Use flexbox layout */
@@ -30,13 +30,13 @@
     height: 70px;
     padding: 10px;
     margin: 5px;
-    border: 2px solid #9b59b6; /* Matching border color */
+    border: 2px solid #7ebce1; /* Matching border color */
     border-radius: 15px; /* Softer, rounded corners */
-    background-color: #fff; /* White background for better contrast */
+    background-color: #7ebce1; /* White background for better contrast */
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    color: rgb(220, 85, 241); /* Purple text */
+    color: #f4f2eb; /* Purple text */
     font-family: 'Montserrat', sans-serif;
     position: relative; /* Ensure the ::after can be positioned correctly */
     transition: all 0.3s ease; /* Smooth transition for hover and active states */
@@ -44,27 +44,27 @@
 
 /* Hover effect on keys */
 .keyboard-key:hover {
-    background-color: #e1adf6; /* Purple background on hover */
+    background-color: #c5e1ef; /* Purple background on hover */
     color: white; /* White text on hover */
     transform: translateY(-3px); /* Lift effect on hover */
 }
 
 /* Active key effect when pressed */
 .keyboard-key:active {
-    background-color: #8e44ad; /* Darker purple when pressed */
+    background-color: #f4f2eb; /* Darker purple when pressed */
     transform: translateY(2px); /* Slightly lower when pressed */
 }
 
 /* When the key is clicked */
 .keyboard-key.clicked {
-    background-color: #d5a6f1; /* Lighter purple-gray background for clicked keys */
-    color: #9b59b6; /* Maintain purple text color */
+    background-color: #f4f2eb; /* Lighter purple-gray background for clicked keys */
+    color: #c5e1ef; /* Maintain purple text color */
 }
 
 /* Chances Left Display Styling */
 .chances-display {
     font-family: 'Montserrat', sans-serif;
-    color: #bc73d9; /* Purple text color */
+    color: #7ebce1; /* Purple text color */
     font-size: 25px; /* Adjust font size for consistency */
     position: absolute; /* Position it relative to the nearest positioned ancestor (keyboard) */
     top: -110px; /* Adjust the top to position it above the keyboard */

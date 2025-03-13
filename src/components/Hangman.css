@@ -27,7 +27,7 @@ body {
 .hangman-beam {
   width: 50%;
   height: 6px;
-  background-color: #be63ff;
+  background-color: #7ebce1;
   border-radius: 10px;
 }
 
@@ -41,7 +41,7 @@ body {
   width: 6px;
   height: 320px;
   margin-left: -10px;
-  background-color: #be63ff;
+  background-color: #7ebce1;
   border-radius: 10px;
 }
 
@@ -60,7 +60,7 @@ body {
   left: calc(50% - 4px);
   width: 5px;
   height: 24px;
-  background-color: #be63ff;
+  background-color: #7ebce1;
   border-radius: 10px;
 }
 
@@ -72,6 +72,6 @@ body {
 .hangman-base {
 width: 100%;
 height: 7px;
-background-color: #be63ff;
+background-color: #7ebce1;
 border-radius: 10px;
 }

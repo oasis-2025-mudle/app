@@ -3,10 +3,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #f5dcff; /* Lighter lavender shade */
+    background-color: #7ebce1; /* Lighter lavender shade */
     padding: 20px;
     border-radius: 15px;
-    border: 2px solid #9b59b6; /* Lighter purple for a softer contrast */
+    border: 2px solid #7ebce1; /* Lighter purple for a softer contrast */
+    color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 600px;
     margin-top: 525px;
@@ -19,8 +20,9 @@
     align-items: center;
     justify-content: center;
     padding: 15px;
-    background-color: #ffffff; /* White background */
-    border: 2px solid #9b59b6; /* Lighter purple border */
+    color: #7ebce1;
+    background-color: #f4f2eb; /* White background */
+    border: 2px solid #7ebce1; /* Lighter purple border */
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -33,26 +35,26 @@
 }
 
 .hint-button:hover:not(.revealed) {
-    background-color: #f6f1fc; /* Lighter purple on hover */
+    background-color: #f1f7fc; /* Lighter purple on hover */
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .hint-button:active:not(.revealed) {
-    background-color: #e3b8f5; /* Slightly darker purple on click */
+    background-color: #c5e1ef; /* Slightly darker purple on click */
     transform: translateY(1px);
 }
 
 .hint-button.revealed {
     background-color: #f9f9f9;
     cursor: default;
-    border-color: #9b59b6; /* Match lighter purple border for revealed state */
+    border-color: #7ebce1; /* Match lighter purple border for revealed state */
 }
 
 .hint-button.revealed .hint-label {
-    color: #9b59b6; /* Lighter purple for revealed state text */
+    color: #517fab; /* Lighter purple for revealed state text */
 }
 
 .hint-button.revealed .hint-value {
-    color: rgb(220, 85, 241); /* Slightly lighter purple for revealed text */
+    color: #7ebce1; /* Slightly lighter purple for revealed text */
 }
