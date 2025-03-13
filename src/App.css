@@ -1,3 +1,9 @@
+body {
+  background-color: #fff3c2;  /* Set your desired background color */
+  width: 1000px;
+}
+
+
 .word-placement-wrapper {
   margin-bottom: 67px; /* Add space between the word placement and keyboard */
   margin-left: 350px;
