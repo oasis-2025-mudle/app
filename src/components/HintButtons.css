@@ -3,14 +3,14 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: lavender;
+    background-color: #f0e7ff; /* Softer lavender shade */
     padding: 20px;
-    border-radius: 30px;
-    border: 1px solid purple;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    width: 600px; /* Increased width for better text fit */
-    margin-top: 530px; /* Use margin-top to position the container vertically */
-    margin-left: 20px; /* Adjust this to position the container horizontally */
+    border-radius: 15px; /* Slightly reduced radius for a more modern look */
+    border: 2px solid #a15bda; /* Lighter purple for more contrast */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 600px; /* Maintain the same width */
+    margin-top: 525px; /* Keep the positioning the same */
+    margin-left: 20px; /* Keep the horizontal alignment */
 }
 
 .hint-button {
@@ -19,53 +19,74 @@
     align-items: center;
     justify-content: center;
     padding: 15px;
-    background-color: #f9f9f9;
-    border: 2px solid #dcacea;
-    border-radius: 20px;
+    background-color: #ffffff; /* White background for a clean look */
+    border: 2px solid #b876ee; /* Lighter purple border */
+    border-radius: 10px; /* Rounded corners for a softer feel */
     cursor: pointer;
-    transition: all 0.3s;
-    min-width: 140px;
-    height: 80px; /* Fixed height for consistent layout */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover/active states */
+    min-width: 140px; /* Keep the size unchanged */
+    height: 80px; /* Keep the height unchanged */
     font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     position: relative;
+    box-sizing: border-box;
 }
 
 /* Formatted text styles */
 .hint-button span {
     display: block;
     line-height: 1.2;
+    text-align: center;
 }
 
 .hint-label {
     font-size: 20px;
-    color: #9060a0;
-    margin-bottom: 4px;
+    color: #7a45b4; /* Slightly darker purple for better contrast */
+    margin-bottom: 6px;
 }
 
 .hint-value {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    color: #bd51df;
+    color: #9e5cd8; /* Bright and vibrant purple to match the theme */
 }
 
-/* Button states */
+/* Button hover and active states */
 .hint-button:hover:not(.revealed) {
-    background-color: #e7c7ec;
-    transform: translateY(-2px);
+    background-color: #f6f1fc; /* Lighter shade when hovered */
+    transform: translateY(-5px); /* Smooth lift effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow for hover effect */
 }
 
 .hint-button:active:not(.revealed) {
-    background-color: #c47adb;
-    transform: translateY(1px);
+    background-color: #e3b8f5; /* Slightly darker purple on click */
+    transform: translateY(1px); /* Small depression effect */
 }
 
 .hint-button.revealed {
     background-color: #f9f9f9;
     cursor: default;
-    border-color: #bd51df;
+    border-color: #9e5cd8; /* Highlight border for revealed button */
 }
 
-/* Remove slash effect since we're showing text */
-.hint-button.revealed::after {
-    content: none;
+.hint-button.revealed .hint-label {
+    color: #a15bda; /* Change text color to match revealed state */
+}
+
+.hint-button.revealed .hint-value {
+    color: #bd51df; /* Slightly muted purple for revealed text */
+}
+
+/* Mobile responsiveness for better scaling */
+@media (max-width: 600px) {
+    .hint-buttons-container {
+        width: 100%; /* Full width on smaller screens */
+        margin-top: 400px; /* Adjust vertical position */
+    }
+
+    .hint-button {
+        font-size: 16px; /* Smaller font size on mobile for better readability */
+        padding: 15px; /* Maintain padding for smaller devices */
+        height: 80px; /* Keep the height unchanged */
+    }
 }

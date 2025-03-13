@@ -3,9 +3,9 @@
     height: 680px;
     margin-top: 145px; /* Distance from the top of the screen */
     padding: 12px;
-    border: 1px solid #9b59b6; /* Slightly more elegant border */
+    border: 2px solid #9b59b6; /* Slightly more elegant border */
     border-radius: 30px;
-    background-color: lavender;
+    background-color: #f5ebf9;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     font-family: 'Jazz LET', fantasy;
     display: flex; /* Use flexbox layout */
@@ -36,7 +36,7 @@
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    color: #9b59b6; /* Purple text */
+    color: #9e5cd8; /* Purple text */
     font-family: 'Montserrat', sans-serif;
     position: relative; /* Ensure the ::after can be positioned correctly */
     transition: all 0.3s ease; /* Smooth transition for hover and active states */
@@ -59,6 +59,25 @@
 .keyboard-key.clicked {
     background-color: #d5a6f1; /* Lighter purple-gray background for clicked keys */
     color: #9b59b6; /* Maintain purple text color */
+}
+
+/* Chances Left Display Styling */
+.chances-display {
+    font-family: 'Montserrat', sans-serif;
+    color: #bc73d9; /* Purple text color */
+    font-size: 25px; /* Adjust font size for consistency */
+    position: absolute; /* Position it relative to the nearest positioned ancestor (keyboard) */
+    top: -110px; /* Adjust the top to position it above the keyboard */
+    left: 90%; /* Center the display horizontally */
+    transform: translateX(-50%); /* To perfectly center it */
+    text-align: center;
+    z-index: 1; /* Ensure it's above the keyboard */
+    transition: all 0.3s ease; /* Smooth transition for styling changes */
+}
+
+/* Styling for keyboard container to prevent chances display from overlapping */
+.keyboard {
+    position: relative; /* This makes the keyboard container the reference for absolute positioning */
 }
 
 /* Style for keyboard container at different screen sizes */
