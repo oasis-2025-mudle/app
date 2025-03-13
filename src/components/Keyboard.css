@@ -63,6 +63,7 @@
 
 /* Chances Left Display Styling */
 .chances-display {
+    user-select: none;
     font-family: 'Montserrat', sans-serif;
     color: #7ebce1; /* Purple text color */
     font-size: 23px; /* Adjust font size for consistency */

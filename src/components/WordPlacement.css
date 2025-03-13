@@ -1,4 +1,5 @@
 body {
+    user-select: none;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: flex-end;
@@ -9,6 +10,7 @@ body {
 }
 
 h1 {
+    user-select: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
     color: #7ebce1;

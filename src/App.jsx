@@ -133,11 +133,13 @@ const App = () => {
                 <Hangman chances={chances} />
 
                 {/* Solid Black Block */}
-                <div className="solid-block"></div>
 
                 {/* Spotify Player */}
                 {spotifyUrl && (
                   <div className="spotify-container">
+                  <div className="solid-block"></div>
+                  <div className="solid-cover"></div>
+
                     <iframe
                       src={`https://open.spotify.com/embed/track/${spotifyUrl.split("/track/")[1]?.split("?")[0]}`}
                       width="300"

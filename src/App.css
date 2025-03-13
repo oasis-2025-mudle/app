@@ -52,15 +52,24 @@ body {
 
 
 .solid-block {
-  position: fixed;  /* Allows flexible positioning */
-  top: 430px;          /* Adjust the vertical position */
-  left: 137px;          /* Adjust the horizontal position */
-  width: 225px;        /* Adjust width */
-  height: 50px;       /* Adjust height */
-  
-  background: #c5e1ef;   /* Solid black color */
-  border-radius: 5px;  /* Optional: Adds rounded corners */
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 225px;
+  backdrop-filter: blur(4px);
+  border-radius: 10px;  /* Optional: Adds rounded corners */
   z-index: 10;         /* Ensures it's above other elements */
+}
+
+.solid-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 75px;
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
 }
 
 
