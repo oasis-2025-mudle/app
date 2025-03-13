@@ -13,10 +13,19 @@ const WinLosePage = ({ result, spotifyUrl, onPlayAgain }) => {
 
   return (
     <div className="win-lose-page">
-      <div className="fireworks"></div> {/* This will be the fireworks container */}
-      
+      {/* Video background */}
+      {result === 'lose' && (
+        <div className="video-background">
+          <video autoPlay muted loop>
+            <source src="doge.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )}
+
       <div className="content">
-        <h1>{result === 'win' ? 'You Win!' : 'You Lose!'}</h1>
+        <h1>{result === 'win' ? 'You Win!' : '☹ You Lose! ☹'}</h1>
+
         <div className="result-message">
           {result === 'lose' && <p>Better luck next time!</p>}
           <p>Here's the song you were guessing:</p>
@@ -26,6 +35,9 @@ const WinLosePage = ({ result, spotifyUrl, onPlayAgain }) => {
         </div>
         <button className="play-again-button" onClick={onPlayAgain}>Play Again</button>
       </div>
+
+      {/* Fireworks container */}
+      <div className="fireworks"></div>
     </div>
   );
 };

@@ -4,9 +4,20 @@
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full viewport height */
-    background-color: #f2f2f2;
+    background-color: transparent;
     text-align: center;
     position: relative;
+    overflow: hidden; /* Hide anything that overflows (like video edges) */
+  }
+  
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%; /* Reduce the height of the video */
+    object-fit: contain; /* Adjust the video to fit within the container, without cropping */
+    z-index: -1; /* Place the video behind the content */
   }
   
   .fireworks {
@@ -20,7 +31,7 @@
   
   .content {
     position: relative; /* Ensure content sits above the fireworks */
-    z-index: 1; /* Ensure content is above the fireworks */
+    z-index: 1; /* Ensure content is above the fireworks and video */
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
@@ -29,7 +40,7 @@
   .win-lose-page h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: #333;
+    color: red; /* White text for better contrast on video background */
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -38,7 +49,7 @@
   .result-message {
     margin-bottom: 20px;
     font-size: 1.2rem;
-    color: #333;
+    color: red; /* White text for better contrast on video background */
   }
   
   .listen-button, .play-again-button {
@@ -76,4 +87,5 @@
       font-size: 1rem;
       padding: 12px 24px;
     }
-  }  
+  }
+  
