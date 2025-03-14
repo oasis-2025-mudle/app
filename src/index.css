@@ -1,6 +1,7 @@
 /* center the grid */
 body,
 html {
+  margin-top: 80px;
   margin: 0;
   padding: 0;
   height: 100%; 

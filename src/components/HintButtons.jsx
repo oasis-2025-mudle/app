@@ -31,7 +31,7 @@ const HintButtons = ({ genre, artist, year }) => {
               <span className="hint-value">{hint.value}</span>
             </>
           ) : (
-            `Hint ${index + 1}`
+            `✧ Hint ${index + 1} ✧`
           )}
         </button>
       ))}

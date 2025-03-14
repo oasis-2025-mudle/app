@@ -5,6 +5,7 @@ import AlbumCover from './components/AlbumCover';
 import HintButtons from './components/HintButtons';
 import Hangman from './components/Hangman';
 import WinLosePage from './components/WinLosePage';
+import SpotifyPlayer from './components/SpotifyPlayer';
 
 const App = () => {
   const [wordToGuess, setWordToGuess] = useState("");
@@ -112,57 +113,43 @@ const App = () => {
   };
 
   return (
-    <div className="container">
+    <div className={`container ${gameOver ? 'game-over' : ''}`}>
       {loading ? (
         <div className="loading">Loading songs...</div>
       ) : (
         <>
           {gameOver ? (
-            // If game is over, show the win/lose page
             <WinLosePage 
               result={gameResult} 
               spotifyUrl={spotifyUrl} 
               onPlayAgain={handlePlayAgain} 
             />
           ) : (
-            // Main game screen
             <>
-              <div className="right-side-panel">
+              <div className="left-side-panel">
                 <AlbumCover albumCover={albumCover} />
+                <SpotifyPlayer spotifyUrl={spotifyUrl} />
                 <HintButtons genre={genre} artist={artist} year={year} />
                 <Hangman chances={chances} />
-
-                {/* Solid Black Block */}
-
-                {/* Spotify Player */}
-                {spotifyUrl && (
-                  <div className="spotify-container">
-                  <div className="solid-block"></div>
-                  <div className="solid-cover"></div>
-
-                    <iframe
-                      src={`https://open.spotify.com/embed/track/${spotifyUrl.split("/track/")[1]?.split("?")[0]}`}
-                      width="300"
-                      height="80"
-                      frameBorder="0"
-                      allow="encrypted-media"
-                      title="Spotify Player"
-                    ></iframe>
-                  </div>
-                )}
+                <div className="solid-block"></div>
+                <div className="solid-cover"></div>
               </div>
-              <Keyboard
-                onKeyPress={handleKeyPress}
-                guessedWords={guessedWords}
-                chances={chances}
-                gameOver={gameOver}
-              />
+  
+              <div className="right-side-panel">
+                <Keyboard
+                  onKeyPress={handleKeyPress}
+                  guessedWords={guessedWords}
+                  chances={chances}
+                  gameOver={gameOver} 
+                />
+              </div>
             </>
           )}
         </>
       )}
     </div>
   );
+  
 };
 
 export default App;

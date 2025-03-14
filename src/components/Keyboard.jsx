@@ -2,7 +2,7 @@ import './Keyboard.css';
 import { useState, useEffect } from 'react';
 import WordPlacement from './WordPlacement';
 
-function Keyboard({ onKeyPress, guessedWords, chances, gameOver }) {
+function Keyboard({ onKeyPress, guessedWords, chances, gameOver, spotifyUrl }) {
   const [clickedKeys, setClickedKeys] = useState(new Set());
 
   const rows = [
@@ -34,7 +34,7 @@ function Keyboard({ onKeyPress, guessedWords, chances, gameOver }) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [clickedKeys, gameOver, onKeyPress]);
+  }, [clickedKeys, gameOver, onKeyPress, spotifyUrl]);
 
   return (
     <div className="keyboard">
@@ -47,6 +47,19 @@ function Keyboard({ onKeyPress, guessedWords, chances, gameOver }) {
       <div className="chances-display">
         <h3>★ Chances left: {chances}</h3>
       </div>
+
+      {/* 🎵 Spotify track information */}
+      {spotifyUrl && (
+        <div className="spotify-info">
+          <iframe
+            src={`https://open.spotify.com/embed/track/${spotifyUrl.split("/track/")[1]?.split("?")[0]}`}
+            width="300"
+            height="80"
+            allow="encrypted-media"
+            title="Spotify Player"
+          ></iframe>
+        </div>
+      )}
 
       {/* The keyboard layout */}
       <div className="keyboard-body">
@@ -65,6 +78,7 @@ function Keyboard({ onKeyPress, guessedWords, chances, gameOver }) {
           </div>
         ))}
       </div>
+
     </div>
   );
 }

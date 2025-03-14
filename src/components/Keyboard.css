@@ -1,7 +1,6 @@
 /* General Keyboard Styling */
 .keyboard {
     height: 680px;
-    margin-top: 145px; /* Distance from the top of the screen */
     padding: 12px;
     border: 3px solid #7ebce1; /* Slightly more elegant border */
     border-radius: 30px;
@@ -12,8 +11,6 @@
     flex-direction: column; /* Stack rows vertically */
     justify-content: flex-end; /* Align rows at the bottom */
     width: 850px; /* Adjust width as needed */
-    margin-left: auto; /* Center horizontally */
-    margin-right: 20px; /* Set a margin of 20px from the right side */
 }
 
 /* Row styling */
@@ -79,18 +76,4 @@
 /* Styling for keyboard container to prevent chances display from overlapping */
 .keyboard {
     position: relative; /* This makes the keyboard container the reference for absolute positioning */
-}
-
-/* Style for keyboard container at different screen sizes */
-@media (max-width: 960px) {
-    .keyboard {
-        width: 100%; /* Make keyboard responsive */
-        margin-top: 60px;
-    }
-    
-    .keyboard-key {
-        width: 60px; /* Slightly smaller keys on smaller screens */
-        height: 60px;
-        font-size: 25px;
-    }
 }

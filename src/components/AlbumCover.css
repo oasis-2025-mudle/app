@@ -1,7 +1,6 @@
 .album-container {
-  position: fixed;  /* Ensures it stays in the top-left corner regardless of scrolling */
-  top: 150px;        /* Distance from the top */
-  left: 60px;       /* Distance from the left */
+  position: relative;  /* Ensures it stays in the top-left corner regardless of scrolling */
+  width: 279px;
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Aligns everything to the left */
@@ -11,9 +10,8 @@
 
 .album-cover {
   width: 300px;
-  height: 275px;
+  height: 300px;
   border-radius: 10px;
-  object-fit: cover;
 }
 
 .spotify-container {

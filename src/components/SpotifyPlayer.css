@@ -1,0 +1,17 @@
+.spotify-player {
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    overflow: hidden;
+    border: none;
+  }
+
+.spotify-player iframe {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+  
+  

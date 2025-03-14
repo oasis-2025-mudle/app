@@ -7,6 +7,7 @@ body {
 
 /* Hangman container */
 .hangman-container {
+  width: 243px;
   margin-left: 400px;  /* Keep the left margin for positioning */
   margin-top: -700px;       /* Ensure the container starts at the top of the screen */
   display: flex;
