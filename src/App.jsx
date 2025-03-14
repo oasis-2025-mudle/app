@@ -24,7 +24,7 @@ const App = () => {
   const fetchSongData = async () => {
     const SHEET_ID = "1vxVGzTkjGr0rzm0rr70HnOIE6BsThAiCooCPzYFbQvw";
     const SHEET_NAME = "Oasis Song Data";
-    const RANGE = "A2:F55";  
+    const RANGE = "A2:F55";
 
     try {
       const response = await fetch(
@@ -119,29 +119,33 @@ const App = () => {
       ) : (
         <>
           {gameOver ? (
-            <WinLosePage 
-              result={gameResult} 
-              spotifyUrl={spotifyUrl} 
-              onPlayAgain={handlePlayAgain} 
+            <WinLosePage
+              result={gameResult}
+              spotifyUrl={spotifyUrl}
+              onPlayAgain={handlePlayAgain}
             />
           ) : (
             <>
+            <div className="component-container">
               <div className="left-side-panel">
-                <AlbumCover albumCover={albumCover} />
-                <SpotifyPlayer spotifyUrl={spotifyUrl} />
+                <div className="left-top">
+                  <div className="music-display">
+                    <AlbumCover albumCover={albumCover} />
+                    <SpotifyPlayer spotifyUrl={spotifyUrl} />
+                  </div>
+                  <Hangman chances={chances} />
+                </div>
                 <HintButtons genre={genre} artist={artist} year={year} />
-                <Hangman chances={chances} />
-                <div className="solid-block"></div>
-                <div className="solid-cover"></div>
               </div>
-  
+
               <div className="right-side-panel">
                 <Keyboard
                   onKeyPress={handleKeyPress}
                   guessedWords={guessedWords}
                   chances={chances}
-                  gameOver={gameOver} 
+                  gameOver={gameOver}
                 />
+              </div>
               </div>
             </>
           )}
@@ -149,7 +153,7 @@ const App = () => {
       )}
     </div>
   );
-  
+
 };
 
 export default App;

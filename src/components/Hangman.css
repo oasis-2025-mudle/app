@@ -6,23 +6,17 @@ body {
 }
 
 /* Hangman container */
-.hangman-container {
-  width: 243px;
-  margin-left: 400px;  /* Keep the left margin for positioning */
-  margin-top: -700px;       /* Ensure the container starts at the top of the screen */
+.hangman-container { 
+  padding-left: 40px;
   display: flex;
-  flex-direction: column-reverse; /* Stack the parts from bottom to top */
-  justify-content: flex-start; /* Align the parts towards the top */
   align-items: flex-start;     /* Align the hangman to the left */
 }
 
 /* Stand styling */
 .hangman-stand {
-  width: 300px;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
-  margin-bottom: -90px;
-  margin-left: -40px;
 }
 
 .hangman-beam {
@@ -41,13 +35,11 @@ body {
 .hangman-post {
   width: 6px;
   height: 320px;
-  margin-left: -10px;
   background-color: #7ebce1;
   border-radius: 10px;
 }
 
 .hangman-main {
-  position: relative;;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -56,11 +48,8 @@ body {
 }
 
 .hangman-main .hangman-rope {
-  position: absolute;
-  top: 0;
-  left: calc(50% - 4px);
   width: 5px;
-  height: 24px;
+  height: 30px;
   background-color: #7ebce1;
   border-radius: 10px;
 }

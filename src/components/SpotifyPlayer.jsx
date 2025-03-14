@@ -11,8 +11,9 @@ function SpotifyPlayer({ spotifyUrl }) {
         height="80"
         allow="encrypted-media"
         title="Spotify Player"
-
       ></iframe>
+      <div className="solid-block"></div>
+      <div className="solid-cover"></div>
     </div>
   );
 }

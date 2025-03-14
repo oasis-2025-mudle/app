@@ -3,15 +3,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #7ebce1; /* Lighter lavender shade */
+    background-color: #7ebce1;
     padding: 20px;
     border-radius: 15px;
-    border: 2px solid #7ebce1; /* Lighter purple for a softer contrast */
+    border: 2px solid #7ebce1;
     color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 600px;
-
-    margin-bottom: 0px;
 }
 
 .hint-button {

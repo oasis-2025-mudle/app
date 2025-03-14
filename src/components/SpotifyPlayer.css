@@ -1,9 +1,8 @@
 .spotify-player {
-    text-align: left;
+    display: flex;
     font-size: 14px;
     font-weight: bold;
     color: #333;
-    margin-bottom: 8px;
     overflow: hidden;
     border: none;
   }
@@ -14,4 +13,21 @@
     box-shadow: none;
 }
   
+.solid-block {
+    position: absolute;
+    padding-left: 70px;
+    height: 40px;
+    width: 225px;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.solid-cover {
+    position: absolute;
+    height: 80px;
+    width: 75px;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+  }
   
