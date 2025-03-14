@@ -60,13 +60,14 @@
 
 /* Chances Left Display Styling */
 .chances-display {
+    width: 250px;
     user-select: none;
     font-family: 'Montserrat', sans-serif;
-    color: #7ebce1; /* Purple text color */
-    font-size: 23px; /* Adjust font size for consistency */
+    color: #4e9bc8; /* Purple text color */
+    font-size: 20px; /* Adjust font size for consistency */
     position: absolute; /* Position it relative to the nearest positioned ancestor (keyboard) */
-    top: -110px; /* Adjust the top to position it above the keyboard */
-    left: 82%; /* Center the display horizontally */
+    top: 0; /* Adjust the top to position it above the keyboard */
+    right: -100px;
     transform: translateX(-50%); /* To perfectly center it */
     text-align: center;
     z-index: 1; /* Ensure it's above the keyboard */
