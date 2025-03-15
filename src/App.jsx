@@ -24,7 +24,7 @@ const App = () => {
   const fetchSongData = async () => {
     const SHEET_ID = "1vxVGzTkjGr0rzm0rr70HnOIE6BsThAiCooCPzYFbQvw";
     const SHEET_NAME = "Oasis Song Data";
-    const RANGE = "A2:F55";
+    const RANGE = "A2:F87";
 
     try {
       const response = await fetch(
