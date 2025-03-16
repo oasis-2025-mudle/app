@@ -146,12 +146,10 @@ const App = () => {
                     gameOver={gameOver}
                   />
                   {/* Directly adding the video element for testing */}
-                  <div className="cat-typing" style={{ position: 'absolute', top: 0, right: 100, zIndex: 10 }}>
-                    <video autoPlay muted loop style={{ width: '200px', height: 'auto' }}>
-                      <source src="/CatTyping.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
+                <div className="cat-typing" style={{ position: 'absolute', top: 0, right: 100, zIndex: 10 }}>
+                  <img src="/CatTyping.gif" alt="Cat typing" style={{ width: '200px', height: 'auto' }} />
+                </div>
+
                 </div>
               </div>
             </>
