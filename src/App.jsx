@@ -147,7 +147,7 @@ const App = () => {
                   />
                   {/* Directly adding the video element for testing */}
                 <div className="cat-typing" style={{ position: 'absolute', top: 13, right: 56, zIndex: 10 }}>
-                  <img src="/CatTyping.gif" alt="Cat typing" style={{ width: '200px', height: 'auto' }} />
+                  <img src="CatTyping.gif" alt="Cat typing" style={{ width: '200px', height: 'auto' }} />
                 </div>
 
                 </div>
