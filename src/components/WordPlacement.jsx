@@ -9,8 +9,8 @@ const WordPlacement = ({ guessedWords }) => {
         {guessedWords.map((wordLetters, wordIndex) => (
           <div key={wordIndex} className="word-line">
             {wordLetters.map((letter, letterIndex) => (
-              <span 
-                className={`letter ${letter === '_' ? 'empty' : 'filled'}`} 
+              <span
+                className={`letter ${letter === '_' ? 'empty' : 'filled'}`}
                 key={letterIndex}
               >
                 {letter}
