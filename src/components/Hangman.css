@@ -48,13 +48,15 @@ body {
 }
 
 .hangman-main .hangman-rope {
+  position: absolute;
   width: 5px;
-  height: 30px;
+  height: 50px;
   background-color: #7ebce1;
   border-radius: 10px;
 }
 
 .hangman-main img {
+  margin-top: 25px;
   width: 260px;
   height: 260px;
 }
