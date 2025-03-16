@@ -24,7 +24,7 @@ const App = () => {
   const fetchSongData = async () => {
     const SHEET_ID = "1vxVGzTkjGr0rzm0rr70HnOIE6BsThAiCooCPzYFbQvw";
     const SHEET_NAME = "Oasis Song Data";
-    const RANGE = "A2:F87";
+    const RANGE = "A2:F175";
 
     try {
       const response = await fetch(
@@ -122,30 +122,37 @@ const App = () => {
             <WinLosePage
               result={gameResult}
               spotifyUrl={spotifyUrl}
-              onPlayAgain={handlePlayAgain}
+              onPlayAgain={fetchSongData}
             />
           ) : (
             <>
-            <div className="component-container">
-              <div className="left-side-panel">
-                <div className="left-top">
-                  <div className="music-display">
-                    <AlbumCover albumCover={albumCover} />
-                    <SpotifyPlayer spotifyUrl={spotifyUrl} />
+              <div className="component-container">
+                <div className="left-side-panel">
+                  <div className="left-top">
+                    <div className="music-display">
+                      <AlbumCover albumCover={albumCover} />
+                      <SpotifyPlayer spotifyUrl={spotifyUrl} />
+                    </div>
+                    <Hangman chances={chances} />
                   </div>
-                  <Hangman chances={chances} />
+                  <HintButtons genre={genre} artist={artist} year={year} />
                 </div>
-                <HintButtons genre={genre} artist={artist} year={year} />
-              </div>
 
-              <div className="right-side-panel">
-                <Keyboard
-                  onKeyPress={handleKeyPress}
-                  guessedWords={guessedWords}
-                  chances={chances}
-                  gameOver={gameOver}
-                />
-              </div>
+                <div className="right-side-panel">
+                  <Keyboard
+                    onKeyPress={handleKeyPress}
+                    guessedWords={guessedWords}
+                    chances={chances}
+                    gameOver={gameOver}
+                  />
+                  {/* Directly adding the video element for testing */}
+                  <div className="cat-typing" style={{ position: 'absolute', top: 0, right: 100, zIndex: 10 }}>
+                    <video autoPlay muted loop style={{ width: '200px', height: 'auto' }}>
+                      <source src="/CatTyping.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
               </div>
             </>
           )}
@@ -153,7 +160,6 @@ const App = () => {
       )}
     </div>
   );
-
 };
 
 export default App;
