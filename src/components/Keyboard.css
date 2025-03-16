@@ -10,7 +10,7 @@
     display: flex; /* Use flexbox layout */
     flex-direction: column; /* Stack rows vertically */
     justify-content: flex-end; /* Align rows at the bottom */
-    width: 850px; /* Adjust width as needed */
+    width: 100%; /* Adjust width as needed */
 }
 
 /* Row styling */
