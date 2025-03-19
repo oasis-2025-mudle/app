@@ -129,6 +129,14 @@ const App = () => {
               <div className="component-container">
                 <div className="left-side-panel">
                   <div className="left-top">
+                    <div className="gif-container">
+                      <img
+                        src="Title.gif"
+                        style={{ position: 'absolute', width: '300px', height: 'auto' , zIndex: 10000, top: -40}}
+                        alt="Title"
+                        className="title-gif"
+                      />
+                    </div>
                     <div className="music-display">
                       <AlbumCover albumCover={albumCover} />
                       <SpotifyPlayer spotifyUrl={spotifyUrl} />
@@ -145,7 +153,7 @@ const App = () => {
                     chances={chances}
                     gameOver={gameOver}
                   />
-                  <div className="cat-typing" style={{ position: 'absolute', top: 13, right: 56, zIndex: 10 }}>
+                  <div className="cat-typing" style={{ position: 'absolute', top: 33, right: 56, zIndex: 10 }}>
                     <img src="CatTyping.gif" alt="Cat typing" style={{ width: '200px', height: 'auto' }} />
                   </div>
                   <video autoPlay muted loop style={{ display: "none" }}>
