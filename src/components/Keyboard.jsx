@@ -38,7 +38,6 @@ function Keyboard({ onKeyPress, guessedWords, chances, gameOver, spotifyUrl }) {
 
   return (
     <div className="keyboard">
-      {/* WordPlacement component at the top of the keyboard */}
       <div className="word-placement-wrapper">
         <WordPlacement guessedWords={guessedWords} />
       </div>
